@@ -1,42 +1,34 @@
 # reactjs
 
+Session 2 Notes
 
-ECMA
-	European Computer Manufacturer Association
-
-	Current Version ES-7
+class MyClass{
+	myVar = 'Test';
+	myMethod =function(){
+		this.myVar = 'New Test';
+		console.log('I am inside the method');
+	}
 	
-	React uses es-6 syntax and JSX - Java Script Extension
-	
-	To convert JSX and ES-6 -. ES-5 v use Babel
-	
-	Babel requires Node (JS Runtime engine)
-	==================================
-Editors to use
-	1) Visual Studio Code
-	2) Sublime Text
-	3) Webstrom
-	4) Atom
-===================================
-Npm based application
-	node package module
-	pom.xml -. package.json
---------------------------------
-Webpack
-	packaging of all the files into single java script files
-------------------------------
+	MyAotherMethd = () =>{
+		this.myVar  =' another var'
+	}
+}
 
-Single page application
-
-Step: 1
-	npm install -g create-react-app
+let obj1=new MyClass();
 
 
-Step: 2
-	create-react-app my-first-app
-	
-Step: 3
-	cd my-first-app
-	
-Step: 4
-	npm start
+obj1.myMethod();
+
+let myMethod= obj1.myMethod();
+let myMethod1= obj1.MyAotherMethd();
+
+myMethod();
+
+class MyClass2{
+	myMthod(){
+		let obj1=new MyClass();
+
+		let myMethod= obj1.myMethod().bind(obj1);
+		myMethod();
+	}
+}
