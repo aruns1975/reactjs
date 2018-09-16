@@ -9,18 +9,4 @@ const Div=(myClass, Children) => {
     )
 }
 
-const DivClass= (myClass, Children) => {
-    return class {
-        render(){
-            return 
-            (
-                <div className={myClass}>
-                    <Children {...this.props}></Children>
-                </div>
-            )
-        }
-    }
-}
-
-export {DivClass};
 export default Div;

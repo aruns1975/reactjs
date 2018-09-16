@@ -4,11 +4,19 @@ import {Table} from 'reactstrap';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 export default class Emps extends Component {
-
+    constructor(){
+        super();
+        this.state ={users:[
+            {id:1,name:'Arun',username:'aruns1975',email:'arun.sarma@gmail.com'},
+            {id:2,name:'Kumar',username:'aruns1975',email:'arun.sarma@gmail.com'}
+        ]};
+    }
     render(){
-        const emps=this.props.users.map(emp=>{ 
+        console.log('Inside emps');
+        console.log(this.props);
+        const emps=this.state.users.map(emp=>{ 
             return (
-              <Emp key={emp.id} id={emp.id} name={emp.name} username={emp.username} email={emp.email}></Emp>
+              <Emp key={emp.id} id={emp.id} name={emp.name} username={emp.username} email={emp.email}{...this.props}></Emp>
             )
           })
         return (
