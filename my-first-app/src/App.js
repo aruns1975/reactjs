@@ -6,6 +6,8 @@ import dept from './Dept';
 import EmpView from './EmpView';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import {Route, NavLink as Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import actions, {asyncAction} from './actions';
 
 
 
@@ -23,6 +25,7 @@ class App extends Component {
     );
   }
   render(){
+    console.log('[Component]', '[App]','[props]', this.props);
     return (
       <div>
         {this.diplayMenu()}
@@ -34,8 +37,31 @@ class App extends Component {
       </div>
     );
   }
+
+  componentDidMount() {
+    
+    this.props.callAction1({a:890, b:763});
+    this.props.dispatch(actions.ACTION2({a: 123, b:456}));
+    this.props.dispatch(asyncAction());
+  }
 }
 
+const mapStateToProps = (state) => {
+  if(state) {
+    return {
+      result: state.result
+    }
+  }
+  return {};
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    callAction1: params => {
+      dispatch(actions.ACTION1(params));
+    },
+    dispatch: dispatch
+  }
+}
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 

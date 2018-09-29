@@ -1,6 +1,13 @@
 # reactjs
 
-Session 6 Notes
+Session 7 Notes
 ----------------
-Routing and Async components
-	Allows multiple content to be displayed dynamically(MPA)
+Intefacing between reactjs and redux
+	
+Packages
+	- react-redux
+	- redux
+	- redux-thunk
+	- redux-logger
+	- redux-promise-middleware
+	- redux-actions
